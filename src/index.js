@@ -1,17 +1,28 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+import './index.css'
+
+import { Saludar, Otro } from "./Saludar.jsx";
+import { Tarea } from "./Tarea.jsx";
+import { Boton } from "./Boton.jsx";
+import { Form } from "./Form.jsx";
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+	<>
+		<Tarea tar={false} />
+		<Boton />
+		<input
+			onChange={(evento) => {
+				console.log(evento.target.value);
+			}}
+		/>
+		<Saludar />
+		<Otro />
+		<Form />
+        <button className="send" onClick={ () => {
+                console.log('Datos guardados correctamente')
+            }}>Enviar</button>
+	</>
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
